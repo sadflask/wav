@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B0B711C0-B642-7531-29B6-86C6D1BE4566}</ProjectGuid>
+    <ProjectGuid>{E3496D69-5B8D-BD1E-16C1-C80660784CA0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,12 +46,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\DestroyOnExit.cs" />
+     <Compile Include="Assets\Scripts\Dodger.cs" />
+     <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\ObjectMove.cs" />
      <Compile Include="Assets\Scripts\PlayerBullet.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -66,9 +66,6 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
