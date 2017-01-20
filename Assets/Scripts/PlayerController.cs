@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[System.Serializable]
-public class Boundary
-{
-    public float xmin, xmax, ymin, ymax;
-}  
-
 public class PlayerController : MonoBehaviour {
     public GameObject shot;
     public float speed;
-    public Boundary boundary;
+    public Transform boundary;
     public float fireRate;
 	public float spread;
     private float nextTime;
@@ -29,8 +22,8 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = new Vector3(Input.GetAxis("Horizontal"),0,0) * speed;
         rb.position = new Vector3
            (
-               Mathf.Clamp(GetComponent<Rigidbody>().position.x, boundary.xmin, boundary.xmax),
-               Mathf.Clamp(GetComponent<Rigidbody>().position.y, boundary.ymin, boundary.ymax),
+               Mathf.Clamp(GetComponent<Rigidbody>().position.x, -boundary.localScale.x / 2, boundary.localScale.x / 2),
+               Mathf.Clamp(GetComponent<Rigidbody>().position.y, -boundary.localScale.y / 2, boundary.localScale.y / 2),
                0
            );
     }
@@ -41,8 +34,9 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButton("Fire1") && (Time.time > nextTime))
         {
             nextTime = Time.time + fireRate;
-			GameObject b = Instantiate(shot, rb.position + new Vector3(spread * Mathf.Sin(-5*Time.time),5,0), Quaternion.identity);
-			b.GetComponent<PlayerBullet>().player = gameObject;
+			PlayerBullet b = Instantiate(shot, rb.position + new Vector3(spread * Mathf.Sin(-5*Time.time),0.5f,0), Quaternion.identity).GetComponent<PlayerBullet>();
+			b.player = gameObject;
+            b.spread = spread;
 
         }
     }
