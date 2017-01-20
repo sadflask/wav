@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetButton("Fire1") && (Time.time > nextTime))
         {
-            //Debug.Log("Fired" + Time.time);
             nextTime = Time.time + fireRate;
 			GameObject b = Instantiate(shot, rb.position + new Vector3(spread * Mathf.Sin(-5*Time.time),5,0), Quaternion.identity);
 			b.GetComponent<PlayerBullet>().player = gameObject;

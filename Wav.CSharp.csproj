@@ -81,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Dodger.cs" />
     <Compile Include="Assets\Scripts\ObjectMove.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
   </ItemGroup>
