@@ -9,10 +9,12 @@ public class Dodger : MonoBehaviour {
     public float maneouverTime;
     Rigidbody rb;
     float nextTime;
+    public GameController gc;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
+        gc = FindObjectOfType<GameController>();
         StartCoroutine(Dodge());
 	}
 	
@@ -23,7 +25,6 @@ public class Dodger : MonoBehaviour {
             yield return new WaitForSeconds(startWait);
             if (nextTime < Time.time)
             {
-                Debug.Log("Dodge" + Time.time);
                 int direction = Random.Range(0, 2);
                 if (direction == 0)
                 {
@@ -31,11 +32,22 @@ public class Dodger : MonoBehaviour {
                 }
 
                 float toDodge = Random.Range(10, dodgeMagnitude) * direction;
+
+                //Check if leaving screen, if so change direction
+                if (rb.position.x + toDodge * maneouverTime > gc.boundary.localScale.x / 2)
+                {
+                    direction = -1;
+                }
+                else if (rb.position.x + toDodge * maneouverTime < -gc.boundary.localScale.x / 2)
+                {
+                    direction = 1;
+                }
+                toDodge = Random.Range(10, dodgeMagnitude) * direction;
+
+                //Perform maneouver
                 rb.velocity = new Vector3(toDodge, rb.velocity.y, 0);
                 yield return new WaitForSeconds(Random.Range(0.3f, maneouverTime));
                 rb.velocity = new Vector3(0, rb.velocity.y, 0);
-
-                //Check if leaving screen
 
                 nextTime = Time.time + dodgeRate;
             }
