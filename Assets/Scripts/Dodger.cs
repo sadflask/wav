@@ -39,6 +39,7 @@ public class Dodger : MonoBehaviour {
 
                 nextTime = Time.time + dodgeRate;
             }
-        }        
+        }
+        yield return null;        
     }
 }
