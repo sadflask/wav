@@ -7,13 +7,14 @@ using UnityEngine;
 public class Boundary
 {
     public float xmin, xmax, ymin, ymax;
-}   
+}  
 
 public class PlayerController : MonoBehaviour {
     public GameObject shot;
     public float speed;
     public Boundary boundary;
     public float fireRate;
+	public float spread;
     private float nextTime;
     Rigidbody rb;
 
@@ -40,7 +41,9 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButton("Fire1") && (Time.time > nextTime))
         {
             nextTime = Time.time + fireRate;
-            Instantiate(shot, rb.position + new Vector3(0,5,0), Quaternion.identity);
+			GameObject b = Instantiate(shot, rb.position + new Vector3(spread * Mathf.Sin(-5*Time.time),5,0), Quaternion.identity);
+			b.GetComponent<PlayerBullet>().player = gameObject;
+
         }
     }
 }
