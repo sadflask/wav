@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public float fireRate;
 	public float spread;
     private float nextTime;
+	public float bulletSpreadConstant;
     Rigidbody rb;
 
 	public float bulletSpeed;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
 		//modify player bullet spread
-		spread = (-bulletWaveAmplitude * (Input.GetAxis("Vertical"))) + 2;
+		spread = (-bulletWaveAmplitude * (Input.GetAxis("Vertical"))) + bulletSpreadConstant;
 
         if (Input.GetButton("Fire1") && (Time.time > nextTime))
         {
