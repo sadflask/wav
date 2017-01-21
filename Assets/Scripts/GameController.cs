@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
 	public GameObject bossEnemy;
 	public GameObject asteroid;
 	public GameObject trashMob;
+	public GameObject zoomer;
 
 	public int enemyWait;
 	public int waveTime;
@@ -80,7 +81,7 @@ public class GameController : MonoBehaviour {
 				else
 				{
 					Debug.Log("Starting");
-					StartCoroutine(SendWave(i + 10 * numSets, true));
+					StartCoroutine(SendWave(i + 10 * numSets, false));
 				}
 				//Wait to send the next wave
 				yield return new WaitForSeconds(waveTime);
@@ -99,6 +100,14 @@ public class GameController : MonoBehaviour {
 			//Spawn enemy at random position
 			Vector3 randomPosition = new Vector3(Random.Range(-boundary.localScale.x/2, boundary.localScale.x / 2), enemySpawnHeight);
 			Instantiate(dodger, randomPosition, Quaternion.Euler(new Vector3(90, 180, 0)));
+			//Delay
+			yield return new WaitForSeconds(enemyWait);
+		}
+		for(int i=0;i<numEnemies/2; i++)
+		{
+			//Spawn enemy at random position
+			Vector3 randomPosition = new Vector3(Random.Range(-boundary.localScale.x/2, boundary.localScale.x / 2), enemySpawnHeight);
+			Instantiate(zoomer, randomPosition, Quaternion.Euler(new Vector3(90, 180, 0)));
 			//Delay
 			yield return new WaitForSeconds(enemyWait);
 		}
