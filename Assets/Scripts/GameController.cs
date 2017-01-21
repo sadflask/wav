@@ -67,6 +67,7 @@ public class GameController : MonoBehaviour {
                 //Wait to send the next wave
                 yield return new WaitForSeconds(waveTime);
             }
+            numSets++;
         }
         //Spawn waves up until the number of 
         yield return null;
