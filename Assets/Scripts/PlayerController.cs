@@ -11,14 +11,17 @@ public class PlayerController : MonoBehaviour {
     private float nextTime;
 	public float bulletSpreadConstant;
     Rigidbody rb;
+    public Queue<PlayerBullet> bullets;
 	public float bulletDamage;
 
+    private PlayerBullet lastCreatedShot;
 	public float bulletSpeed;
 	public float bulletWaveAmplitude;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
+        bullets = new Queue<PlayerBullet>();
 	}
 
 
@@ -36,18 +39,25 @@ public class PlayerController : MonoBehaviour {
     //Called once per frame
     void Update()
     {
-		//modify player bullet spread
-		spread = (-bulletWaveAmplitude * (Input.GetAxis("Vertical"))) + bulletSpreadConstant;
+        //modify player bullet spread
+        spread = (-bulletWaveAmplitude * (Input.GetAxis("Vertical"))) + bulletSpreadConstant;
 
         if (Input.GetButton("Fire1") && (Time.time > nextTime))
         {
             nextTime = Time.time + fireRate;
-			PlayerBullet b = Instantiate(shot, rb.position, Quaternion.identity).GetComponent<PlayerBullet>();
-			b.player = gameObject;
+            PlayerBullet b = Instantiate(shot, rb.position, Quaternion.identity).GetComponent<PlayerBullet>();
+            b.player = gameObject;
             b.spread = Mathf.Clamp(spread, 0, 5);
-			b.speed = bulletSpeed;
-			b.startAmplitude = Mathf.Sin(-5*Time.time);
+            b.speed = bulletSpeed;
+            b.startAmplitude = Mathf.Sin(-5 * Time.time);
+            b.lastShot = lastCreatedShot;
+            bullets.Enqueue(b);
+            lastCreatedShot = b;
+        }
 
+        if (bullets.Peek() == null)
+        {
+            bullets.Dequeue();
         }
     }
 

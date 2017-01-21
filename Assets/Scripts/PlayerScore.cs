@@ -17,9 +17,9 @@ public class PlayerScore : MonoBehaviour {
 		
 	}
 
-	public void addScoreFromEnemey(GameObject enemey){
+	public void addScoreFromEnemy(GameObject enemy){
 		Debug.Log ("Increased score");
-		playerScore += scoreModifier * enemey.gameObject.GetComponent<Dodger> ().scoreValue;
+		playerScore += scoreModifier * enemy.gameObject.GetComponent<Dodger> ().scoreValue;
 
 	}
 
