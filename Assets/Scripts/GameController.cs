@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour {
 
     public GameObject player;
-    public GameObject enemy;
-    public GameObject enemyL2;
+    public GameObject dodger;
+    public GameObject bruiser;
     public GameObject bossEnemy;
 	public GameObject asteroid;
 
@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour {
         {
             //Spawn enemy at random position
             Vector3 randomPosition = new Vector3(Random.Range(-boundary.localScale.x/2, boundary.localScale.x / 2), enemySpawnHeight);
-            Instantiate(enemy, randomPosition, Quaternion.identity);
+            Instantiate(dodger, randomPosition, Quaternion.Euler(new Vector3(90, 180, 0)));
             //Delay
             yield return new WaitForSeconds(enemyWait);
         }
@@ -88,7 +88,7 @@ public class GameController : MonoBehaviour {
         {
             //Spawn next level enemy at random position
             Vector3 randomPosition = new Vector3(Random.Range(-boundary.localScale.x / 2, boundary.localScale.x / 2), enemySpawnHeight);
-            Instantiate(enemyL2, randomPosition, Quaternion.identity);
+            Instantiate(bruiser, randomPosition, Quaternion.Euler(new Vector3(-90, 180, 0)));
             //Delay
             yield return new WaitForSeconds(enemyWait);
         }

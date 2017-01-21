@@ -21,7 +21,7 @@ public class Health : MonoBehaviour {
 			if (GameObject.FindGameObjectWithTag ("Player") != null) {
 				float playerScore = GameObject.FindGameObjectWithTag ("Player").gameObject.GetComponent<PlayerScore> ().playerScore;
 				if (gameObject.CompareTag ("Enemy") &&  playerScore % powerUpFrequency == 0) {
-					powerUp = Instantiate (powerUp, gameObject.GetComponent<Rigidbody> ().position, Quaternion.identity);
+					Instantiate (powerUp, gameObject.GetComponent<Rigidbody> ().position, Quaternion.identity);
 				}
 			}
 

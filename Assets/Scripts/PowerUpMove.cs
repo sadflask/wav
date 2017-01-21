@@ -25,6 +25,7 @@ public class PowerUpMove : MonoBehaviour {
 			Debug.Log ("Player collected a PowerUp!");
 			PlayerController pc = other.gameObject.GetComponent<PlayerController> ();
 			pc.bulletDamage += 0.2f;
+            Destroy(gameObject);
 			//pc.bulletSpeed++;
 			//pc.fireRate /= 2;
 			//pc.speed++;

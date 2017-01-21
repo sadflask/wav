@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
                 bullets.Dequeue();
             }
         }
-        damageText.text = "Weapon: " + ((int)bulletDamage * 100).ToString() + "%";
+        damageText.text = "Weapon: " + ((int)(bulletDamage * 100)).ToString() + "%";
         foreach(PlayerBullet b in bullets)
         {
             if (b.spread!=spread)
