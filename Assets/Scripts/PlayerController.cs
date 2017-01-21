@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
     private float nextTime;
 	public float bulletSpreadConstant;
     Rigidbody rb;
+    public Queue<PlayerBullet> bullets;
+    public PlayerBullet[] bulletArray;
 
 	public float bulletSpeed;
 	public float bulletWaveAmplitude;
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
+        bullets = new Queue<PlayerBullet>();
 	}
 
 
@@ -46,7 +49,36 @@ public class PlayerController : MonoBehaviour {
             b.spread = Mathf.Clamp(spread, 0, 5);
 			b.speed = bulletSpeed;
 			b.startAmplitude = Mathf.Sin(-5*Time.time);
+            bullets.Enqueue(b);
 
+        }
+
+        if(bullets.Peek() == null)
+        {
+            //bullets.Dequeue();
+        }
+        bulletArray = bullets.ToArray();
+        for(int i=0; i<bulletArray.Length; i++)
+        {
+            if (i == 0)
+            {
+                Debug.Log("First");
+            }
+            else
+            {
+                if (bulletArray[i] != null && bulletArray[i - 1] != null)
+                {
+                    Vector3 vectorBetween = bulletArray[i].transform.position - bulletArray[i - 1].transform.position;
+                    Vector3 centre = bulletArray[i-1].transform.position + (vectorBetween) / 2;
+                    Debug.Log(centre);
+                    if (vectorBetween.magnitude < 2)
+                    {
+                        bulletArray[i].transform.GetChild(0).position = centre;
+                        bulletArray[i].transform.GetChild(0).LookAt(bulletArray[i - 1].transform);
+                        bulletArray[i].transform.GetChild(0).localScale = new Vector3(0.1f, 0.1f, vectorBetween.magnitude*4); 
+                    }
+                }
+            }
         }
     }
 }
