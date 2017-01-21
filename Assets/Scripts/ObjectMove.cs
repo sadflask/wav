@@ -21,7 +21,7 @@ public class ObjectMove : MonoBehaviour
         {
             if (transform.position.y < -boundary.localScale.y / 2)
             {
-                rb.position = new Vector3(transform.position.x, boundary.localScale.y / 2, 0); //Figure out Y defaults
+                rb.position = new Vector3(transform.position.x, boundary.localScale.y / 2, rb.position.z); //Figure out Y defaults
             }
         }
     }
