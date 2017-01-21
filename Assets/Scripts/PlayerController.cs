@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     public Queue<PlayerBullet> bullets;
 	public float bulletDamage;
     public Text damageText;
+    public GameObject shotSpawn;
 
     private PlayerBullet lastCreatedShot;
 	public float bulletSpeed;
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButton("Fire1") && (Time.time > nextTime))
         {
             nextTime = Time.time + fireRate;
-            PlayerBullet b = Instantiate(shot, rb.position, Quaternion.identity).GetComponent<PlayerBullet>();
+            PlayerBullet b = Instantiate(shot, shotSpawn.transform.position, Quaternion.identity).GetComponent<PlayerBullet>();
             b.player = gameObject;
             b.spread = Mathf.Clamp(spread, 0, 5);
             b.speed = bulletSpeed;
