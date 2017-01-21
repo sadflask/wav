@@ -54,10 +54,12 @@ public class PlayerController : MonoBehaviour {
             bullets.Enqueue(b);
             lastCreatedShot = b;
         }
-
-        if (bullets.Peek() == null)
+        if (lastCreatedShot)
         {
-            bullets.Dequeue();
+            if (bullets.Peek() == null)
+            {
+                bullets.Dequeue();
+            }
         }
     }
 

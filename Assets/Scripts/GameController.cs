@@ -6,7 +6,8 @@ public class GameController : MonoBehaviour {
 
     public GameObject player;
     public GameObject enemy;
-    public GameObject boss;
+    public GameObject enemyL2;
+    public GameObject bossEnemy;
 
     public int enemyWait;
     public int waveTime;
@@ -36,7 +37,7 @@ public class GameController : MonoBehaviour {
                 else
                 {
                     Debug.Log("Starting");
-                    StartCoroutine(SendWave(i * numSets * 3, false));
+                    StartCoroutine(SendWave(i * numSets, false));
                 }
                 //Wait to send the next wave
                 yield return new WaitForSeconds(waveTime);
@@ -56,6 +57,19 @@ public class GameController : MonoBehaviour {
             Instantiate(enemy, randomPosition, Quaternion.identity);
             //Delay
             yield return new WaitForSeconds(enemyWait);
+        }
+        for(int i=0;i<numEnemies/5;i++)
+        {
+            //Spawn next level enemy at random position
+            Vector3 randomPosition = new Vector3(Random.Range(-boundary.localScale.x / 2, boundary.localScale.x / 2), enemySpawnHeight);
+            Instantiate(enemyL2, randomPosition, Quaternion.identity);
+            //Delay
+            yield return new WaitForSeconds(enemyWait);
+        }
+        if (boss)
+        {
+            Vector3 randomPosition = new Vector3(0, enemySpawnHeight);
+            Instantiate(bossEnemy, randomPosition, Quaternion.identity);
         }
         yield return null;
     }

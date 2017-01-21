@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 	public float maxHealth;
 	public float currentHealth;
+    public float powerUpFrequency;
 
 	//power up to spawn when out of health
 	public GameObject powerUp;
@@ -19,7 +20,7 @@ public class Health : MonoBehaviour {
 		if (currentHealth <= 0) {
 			if (GameObject.FindGameObjectWithTag ("Player") != null) {
 				float playerScore = GameObject.FindGameObjectWithTag ("Player").gameObject.GetComponent<PlayerScore> ().playerScore;
-				if (gameObject.CompareTag ("Enemy") &&  playerScore % 5 == 0) {
+				if (gameObject.CompareTag ("Enemy") &&  playerScore % powerUpFrequency == 0) {
 					powerUp = Instantiate (powerUp, gameObject.GetComponent<Rigidbody> ().position, Quaternion.identity);
 				}
 			}

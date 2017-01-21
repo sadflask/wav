@@ -33,7 +33,7 @@ public class PlayerBullet : MonoBehaviour {
                 {
                     transform.GetChild(0).LookAt(lastShot.transform);
                     transform.GetChild(0).position = centre;
-                    transform.GetChild(0).localScale = new Vector3(0.1f, 0.1f, vectorBetween.magnitude * 4);
+                    transform.GetChild(0).localScale = new Vector3(0.2f, 0.2f, vectorBetween.magnitude * 8);
                 }
             }
             if (currentTime > 1)
