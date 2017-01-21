@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -8067,11 +8067,14 @@ MonoBehaviour:
   bruiser: {fileID: 1988069627234826, guid: 08ecb1001d5a46b4a832c0cf06f488af, type: 2}
   bossEnemy: {fileID: 1160520891902170, guid: d571672a20111b7439d6a6dbbbeed778, type: 2}
   asteroid: {fileID: 1064159742941746, guid: aa39d30111e687443b154c669172a586, type: 2}
+  trashMob: {fileID: 1307626033287070, guid: 3cf86223e0f62544aa682073b8d1fab7, type: 2}
   enemyWait: 1
   waveTime: 15
   enemySpawnHeight: 5
+  bossSpawnHeight: 4
   boundary: {fileID: 1179791712}
   waveText: {fileID: 1316115956}
+  bossAddSpawnDelay: 5
   asteroidSpawnDelay: 5
 --- !u!4 &1566784050
 Transform:

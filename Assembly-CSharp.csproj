@@ -46,7 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Score.cs" />
+     <Compile Include="Assets\Scripts\CollisionDamage.cs" />
      <Compile Include="Assets\Scripts\DestroyOnExit.cs" />
      <Compile Include="Assets\Scripts\Dodger.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
@@ -56,6 +56,8 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerScore.cs" />
      <Compile Include="Assets\Scripts\PowerUpMove.cs" />
+     <Compile Include="Assets\Scripts\Rotate.cs" />
+     <Compile Include="Assets\Scripts\worthPoints.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
