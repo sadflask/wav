@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
     public GameObject shot;
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     Rigidbody rb;
     public Queue<PlayerBullet> bullets;
 	public float bulletDamage;
+    public Text damageText;
 
     private PlayerBullet lastCreatedShot;
 	public float bulletSpeed;
@@ -59,6 +61,15 @@ public class PlayerController : MonoBehaviour {
             if (bullets.Peek() == null)
             {
                 bullets.Dequeue();
+            }
+        }
+        damageText.text = "Weapon: " + (bulletDamage * 100).ToString() + "%";
+        foreach(PlayerBullet b in bullets)
+        {
+            if (b.spread!=spread)
+            {
+                b.spread = spread;
+                b.lineSet = false;
             }
         }
     }

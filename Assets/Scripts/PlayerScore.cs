@@ -22,7 +22,7 @@ public class PlayerScore : MonoBehaviour {
 	public void addScoreFromEnemy(GameObject enemy){
 		Debug.Log ("Increased score");
 		playerScore += scoreModifier * enemy.gameObject.GetComponent<Dodger> ().scoreValue;
-        scoreText.text = playerScore.ToString();
+        scoreText.text = "Score: " + playerScore.ToString();
 
 	}
 

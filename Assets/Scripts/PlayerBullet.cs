@@ -9,7 +9,7 @@ public class PlayerBullet : MonoBehaviour {
 	public float spread;
 	public float startAmplitude;
 	private float startTime;
-    private bool lineSet = false;
+    public bool lineSet = false;
     public PlayerBullet lastShot;
 
 	// Use this for initialization

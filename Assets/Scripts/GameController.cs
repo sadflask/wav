@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -13,12 +14,14 @@ public class GameController : MonoBehaviour {
     public int waveTime;
     public float enemySpawnHeight;
     public Transform boundary;
+    public Text waveText;
 
     private int numSets;
+    
 
     // Use this for initialization
     void Start () {
-        numSets = 1;
+        numSets = 0;
         boundary = player.GetComponent<PlayerController>().boundary;
         StartCoroutine(SpawnWaves());
 	}
@@ -30,14 +33,15 @@ public class GameController : MonoBehaviour {
         {
             for(int i=1;i<=10;i++)
             {
+                waveText.text = "Wave: " + (i + 10 * numSets).ToString();
                 if (i == 10)
                 {
-                    SendWave(i * numSets, true);
+                    StartCoroutine(SendWave(i + 10 * numSets, true));
                 }
                 else
                 {
                     Debug.Log("Starting");
-                    StartCoroutine(SendWave(i * numSets, false));
+                    StartCoroutine(SendWave(i + 10 * numSets, false));
                 }
                 //Wait to send the next wave
                 yield return new WaitForSeconds(waveTime);
@@ -66,6 +70,7 @@ public class GameController : MonoBehaviour {
             //Delay
             yield return new WaitForSeconds(enemyWait);
         }
+        yield return new WaitForSeconds(5);
         if (boss)
         {
             Vector3 randomPosition = new Vector3(0, enemySpawnHeight);

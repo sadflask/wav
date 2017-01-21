@@ -24,7 +24,7 @@ public class PowerUpMove : MonoBehaviour {
 		if (other.CompareTag("Player")) {
 			Debug.Log ("Player collected a PowerUp!");
 			PlayerController pc = other.gameObject.GetComponent<PlayerController> ();
-			pc.bulletDamage += 10;
+			pc.bulletDamage += 0.2f;
 			//pc.bulletSpeed++;
 			//pc.fireRate /= 2;
 			//pc.speed++;
