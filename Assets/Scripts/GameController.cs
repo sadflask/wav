@@ -8,11 +8,16 @@ public class GameController : MonoBehaviour {
     public GameObject enemy;
     public GameObject enemyL2;
     public GameObject bossEnemy;
+	public GameObject asteroid;
+
 
     public int enemyWait;
     public int waveTime;
     public float enemySpawnHeight;
     public Transform boundary;
+
+	public float asteroidSpawnDelay;
+
 
     private int numSets;
 
@@ -21,8 +26,24 @@ public class GameController : MonoBehaviour {
         numSets = 1;
         boundary = player.GetComponent<PlayerController>().boundary;
         StartCoroutine(SpawnWaves());
+		StartCoroutine (Asteroids ());
 	}
-	
+	// Update is called once per frame
+	IEnumerator Asteroids () {
+		while (player) {
+			Vector3 randomPosition = new Vector3(Random.Range(-boundary.localScale.x/2, boundary.localScale.x / 2), enemySpawnHeight);
+
+			GameObject localAsteroid = Instantiate(asteroid, randomPosition, Quaternion.identity);
+			Rigidbody rb = localAsteroid.GetComponent<Rigidbody> ();
+			Vector3 v = rb.velocity;
+			v.x = Random.Range(-10, 10);
+			rb.velocity = v;
+
+			yield return new WaitForSeconds(asteroidSpawnDelay);
+		
+		}
+
+	}
 	IEnumerator SpawnWaves()
     {
         

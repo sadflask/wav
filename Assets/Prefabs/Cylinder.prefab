@@ -26,6 +26,8 @@ GameObject:
   - component: {fileID: 114473070159398912}
   - component: {fileID: 54525375067494172}
   - component: {fileID: 114741542609977870}
+  - component: {fileID: 114067422112650086}
+  - component: {fileID: 114046592927195506}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Enemy
@@ -99,6 +101,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114046592927195506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1178900058263336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733672664829fe94696d4c60bea20347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDamage: 1
+  destroyOnCollison: 1
+--- !u!114 &114067422112650086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1178900058263336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21626906e16f2540bf9aaaac4ad66a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 1
 --- !u!114 &114473070159398912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,7 +142,6 @@ MonoBehaviour:
   startWait: 0.5
   maneouverTime: 0.5
   collisionDamage: 1
-  scoreValue: 50
   gc: {fileID: 0}
 --- !u!114 &114741542609977870
 MonoBehaviour:
