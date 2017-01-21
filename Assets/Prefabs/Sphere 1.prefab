@@ -183,6 +183,7 @@ MonoBehaviour:
   speed: 30
   spread: 5
   startAmplitude: 0
+  lastShot: {fileID: 0}
 --- !u!135 &135772210278604752
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -254,9 +254,11 @@ GameObject:
   - component: {fileID: 864163761}
   - component: {fileID: 864163760}
   - component: {fileID: 864163765}
+  - component: {fileID: 864163766}
+  - component: {fileID: 864163767}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +280,7 @@ MonoBehaviour:
   fireRate: 0.05
   spread: 1
   bulletSpreadConstant: 2
+  bulletDamage: 0
   bulletSpeed: 5
   bulletWaveAmplitude: 1.5
 --- !u!23 &864163761
@@ -358,6 +361,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &864163766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864163759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07143fb392c1e6544915461249d60628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  currentHealth: 0
+  powerUp: {fileID: 1300263175111590, guid: 442df1b35e7ae694da2e499822de8c93, type: 2}
+--- !u!114 &864163767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864163759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1545e1be11b3927469b7e4fe41db7a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScore: 0
+  scoreModifier: 1
 --- !u!1 &1179791710
 GameObject:
   m_ObjectHideFlags: 0

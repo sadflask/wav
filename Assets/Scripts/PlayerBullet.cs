@@ -29,7 +29,6 @@ public class PlayerBullet : MonoBehaviour {
             {
                 Vector3 vectorBetween = lastShot.transform.position - transform.position;
                 Vector3 centre = transform.position + (vectorBetween) / 2;
-                Debug.Log(centre);
                 if (vectorBetween.magnitude < 2.5)
                 {
                     transform.GetChild(0).LookAt(lastShot.transform);
@@ -43,5 +42,20 @@ public class PlayerBullet : MonoBehaviour {
             }
         }
         rb.position = new Vector3(player.transform.position.x + (startAmplitude * spread) * fraction, transform.position.y, 0);
-    }
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.CompareTag("Enemy")) {
+			Debug.Log ("Hit");
+			other.gameObject.GetComponent<Health>().takeDamage (1);
+			Destroy (gameObject);
+
+			if (other.gameObject.GetComponent<Health> ().currentHealth <= 0) {
+				//increase player's score
+				Debug.Log("Player score increased");
+				player.GetComponent<PlayerScore> ().addScoreFromEnemy (other.gameObject);
+
+			}
+		}
+	}
 }

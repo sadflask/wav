@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 	public float bulletSpreadConstant;
     Rigidbody rb;
     public Queue<PlayerBullet> bullets;
+	public float bulletDamage;
 
     private PlayerBullet lastCreatedShot;
 	public float bulletSpeed;
@@ -59,4 +60,14 @@ public class PlayerController : MonoBehaviour {
             bullets.Dequeue();
         }
     }
+
+	//if the player gets hit by an enemy the player takes damage
+	void OnTriggerEnter(Collider other) {
+		if (other.CompareTag("Enemy")) {
+			Debug.Log ("Player Hit by enemy");
+			gameObject.GetComponent<Health>().takeDamage (other.GetComponent<Dodger>().collisionDamage);
+			//Destroy (other.gameObject);
+
+		}
+	}
 }
