@@ -8,6 +8,6 @@ public class ObjectMove : MonoBehaviour {
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(0, speed, 0);
+        rb.velocity += new Vector3(0, speed, 0);
 	}
 }

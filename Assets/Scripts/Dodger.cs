@@ -11,9 +11,6 @@ public class Dodger : MonoBehaviour {
 	//damage this object will do when it collides with the player
 	public float collisionDamage;
 
-	//ammount to increase score by when this enemy is defeated
-	public float scoreValue;
-
     Rigidbody rb;
     float nextTime;
     public GameController gc;
