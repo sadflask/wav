@@ -25,4 +25,20 @@ public class PlayerBullet : MonoBehaviour {
 		rb.position = new Vector3 (player.transform.position.x + (startAmplitude * spread) * fraction, transform.position.y, 0);
 	}
 
+	void OnTriggerEnter(Collider other) {
+		if (other.CompareTag("Enemy")) {
+			Debug.Log ("Hit");
+			other.gameObject.GetComponent<Health>().takeDamage (1);
+			//Destroy (other.gameObject);
+			Destroy (gameObject);
+
+			if (other.gameObject.GetComponent<Health> ().currentHealth <= 0) {
+				//increase player's score
+				Debug.Log("Player score increased");
+				player.GetComponent<PlayerScore> ().addScoreFromEnemey (other.gameObject);
+
+			}
+		}
+	}
+
 }

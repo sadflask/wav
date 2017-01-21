@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour {
                 else
                 {
                     Debug.Log("Starting");
-                    StartCoroutine(SendWave(i * numSets, false));
+                    StartCoroutine(SendWave(i * numSets * 3, false));
                 }
                 //Wait to send the next wave
                 yield return new WaitForSeconds(waveTime);
