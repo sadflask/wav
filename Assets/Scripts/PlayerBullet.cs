@@ -47,7 +47,8 @@ public class PlayerBullet : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Enemy")) {
 			Debug.Log ("Hit");
-			other.gameObject.GetComponent<Health>().takeDamage (1);
+			other.gameObject.GetComponent<Health>().takeDamage (player.GetComponent<PlayerController>().bulletDamage);
+
 			Destroy (gameObject);
 
 			if (other.gameObject.GetComponent<Health> ().currentHealth <= 0) {
