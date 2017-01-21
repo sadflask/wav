@@ -9,6 +9,8 @@ public class PlayerBullet : MonoBehaviour {
 	public float spread;
 	public float startAmplitude;
 	private float startTime;
+    private bool lineSet = false;
+    public PlayerBullet lastShot;
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +23,25 @@ public class PlayerBullet : MonoBehaviour {
 	void Update () {
 		float currentTime = Time.time - startTime;
 		float fraction = Mathf.Clamp01 (currentTime * 2);
-
-		rb.position = new Vector3 (player.transform.position.x + (startAmplitude * spread) * fraction, transform.position.y, 0);
-	}
-
+        if(!lineSet)
+        {
+            if (lastShot)
+            {
+                Vector3 vectorBetween = lastShot.transform.position - transform.position;
+                Vector3 centre = transform.position + (vectorBetween) / 2;
+                Debug.Log(centre);
+                if (vectorBetween.magnitude < 2.5)
+                {
+                    transform.GetChild(0).LookAt(lastShot.transform);
+                    transform.GetChild(0).position = centre;
+                    transform.GetChild(0).localScale = new Vector3(0.1f, 0.1f, vectorBetween.magnitude * 4);
+                }
+            }
+            if (currentTime > 1)
+            {
+                lineSet = true;
+            }
+        }
+        rb.position = new Vector3(player.transform.position.x + (startAmplitude * spread) * fraction, transform.position.y, 0);
+    }
 }

@@ -275,10 +275,9 @@ MonoBehaviour:
   shot: {fileID: 1230464903110694, guid: 2486bfa23e1b02544915bb9bcfc618f2, type: 2}
   speed: 5
   boundary: {fileID: 1179791712}
-  fireRate: 0.01
+  fireRate: 0.05
   spread: 1
   bulletSpreadConstant: 2
-  bulletArray: []
   bulletSpeed: 5
   bulletWaveAmplitude: 1.5
 --- !u!23 &864163761
