@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour {
     private float nextTime;
     Rigidbody rb;
 
+	public float bulletSpeed;
+	public float bulletWaveAmplitude;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
@@ -31,12 +34,17 @@ public class PlayerController : MonoBehaviour {
     //Called once per frame
     void Update()
     {
+		//modify player bullet spread
+		spread = (-bulletWaveAmplitude * (Input.GetAxis("Vertical"))) + 2;
+
         if (Input.GetButton("Fire1") && (Time.time > nextTime))
         {
             nextTime = Time.time + fireRate;
-			PlayerBullet b = Instantiate(shot, rb.position + new Vector3(spread * Mathf.Sin(-5*Time.time),0.5f,0), Quaternion.identity).GetComponent<PlayerBullet>();
+			PlayerBullet b = Instantiate(shot, rb.position, Quaternion.identity).GetComponent<PlayerBullet>();
 			b.player = gameObject;
-            b.spread = spread;
+            b.spread = Mathf.Clamp(spread, 0, 5);
+			b.speed = bulletSpeed;
+			b.startAmplitude = Mathf.Sin(-5*Time.time);
 
         }
     }
