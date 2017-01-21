@@ -27,7 +27,7 @@ public class Dodger : MonoBehaviour {
         while (gameObject)
         {
             yield return new WaitForSeconds(startWait);
-            if (nextTime < Time.time)
+			if (nextTime < Time.time && gameObject.transform.position.y > -2)
             {
                 int direction = Random.Range(0, 2);
                 if (direction == 0)
@@ -49,7 +49,8 @@ public class Dodger : MonoBehaviour {
                 toDodge = Random.Range(10, dodgeMagnitude) * direction;
 
                 //Perform maneouver
-                rb.velocity = new Vector3(toDodge, rb.velocity.y, 0);
+                
+				rb.velocity = new Vector3(toDodge, rb.velocity.y, 0);
                 yield return new WaitForSeconds(Random.Range(0.3f, maneouverTime));
                 rb.velocity = new Vector3(0, rb.velocity.y, 0);
 

@@ -26,7 +26,10 @@ public class Health : MonoBehaviour {
 			}
 
 			Debug.Log ("Destroyed " + gameObject.name + " due to lack of health");
-			Destroy (gameObject);
+            if (!gameObject.CompareTag("BOSS"))
+            {
+                Destroy(gameObject);
+            }
 		}
 	}
 

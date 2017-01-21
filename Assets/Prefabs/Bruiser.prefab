@@ -53,7 +53,6 @@ GameObject:
   - component: {fileID: 4671166532650936}
   - component: {fileID: 136301410978699528}
   - component: {fileID: 114204772706722530}
-  - component: {fileID: 114789337000179834}
   - component: {fileID: 54616029607413528}
   - component: {fileID: 114361065457355442}
   - component: {fileID: 33587980435506592}
@@ -220,23 +219,6 @@ MonoBehaviour:
   currentHealth: 0
   powerUpFrequency: 200
   powerUp: {fileID: 1093472385426360, guid: a0257645ae8e6fc46bf66504aba4f1f6, type: 2}
---- !u!114 &114789337000179834
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1988069627234826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a583ecb6b214848b80989188453f4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dodgeRate: 2
-  dodgeMagnitude: 2
-  startWait: 0.5
-  maneouverTime: 0.5
-  collisionDamage: 1
-  gc: {fileID: 0}
 --- !u!136 &136301410978699528
 CapsuleCollider:
   m_ObjectHideFlags: 1

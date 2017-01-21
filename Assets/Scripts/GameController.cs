@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
     public GameObject bruiser;
     public GameObject bossEnemy;
 	public GameObject asteroid;
-
+	public GameObject zoomer;
 
     public int enemyWait;
     public int waveTime;
@@ -23,7 +23,6 @@ public class GameController : MonoBehaviour {
     private bool bossDestroyed;
     private int numSets;
     
-
     // Use this for initialization
     void Start () {
         numSets = 0;
@@ -86,7 +85,15 @@ public class GameController : MonoBehaviour {
             //Delay
             yield return new WaitForSeconds(enemyWait);
         }
-        for(int i=0;i<numEnemies/5;i++)
+        for (int i = 0; i < numEnemies / 2; i++)
+        {
+            //Spawn enemy at random position
+            Vector3 randomPosition = new Vector3(Random.Range(-boundary.localScale.x / 2, boundary.localScale.x / 2), enemySpawnHeight);
+            Instantiate(zoomer, randomPosition, Quaternion.Euler(new Vector3(90, 180, 0)));
+            //Delay
+            yield return new WaitForSeconds(enemyWait);
+        }
+    for (int i=0;i<numEnemies/5;i++)
         {
             //Spawn next level enemy at random position
             Vector3 randomPosition = new Vector3(Random.Range(-boundary.localScale.x / 2, boundary.localScale.x / 2), enemySpawnHeight);
@@ -101,12 +108,14 @@ public class GameController : MonoBehaviour {
         if (boss)
         {
             //Send wave of enemies and instantiate boss
-            for (int i=0; i< 10; i++)
+            for (int i=0; i< numSets * 2; i++)
             {
                 //Instantiate bruiser
-                Vector3 position = new Vector3(i-5, enemySpawnHeight);
+                Vector3 position = new Vector3(Random.Range(-boundary.localScale.x / 2, boundary.localScale.x / 2), enemySpawnHeight);
                 Instantiate(bruiser, position, Quaternion.Euler(new Vector3(-90, 180, 0)));
             }
+            //Wait
+            yield return new WaitForSeconds(3);
             //Instantiate boss
             Vector3 randomPosition = new Vector3(0, enemySpawnHeight);
             bossMan = Instantiate(bossEnemy, randomPosition, Quaternion.Euler(90, 180, 0));

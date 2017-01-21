@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 33278973697134980}
   - component: {fileID: 136385817003296270}
   - component: {fileID: 114668443508056104}
-  - component: {fileID: 114109579373042542}
   - component: {fileID: 54788490847578904}
   - component: {fileID: 114960913992868972}
   - component: {fileID: 114984280478836102}
@@ -99,14 +98,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745732962851528}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 1.5, z: 0.75}
   m_Children:
   - {fileID: 4315579877166860}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!23 &23185614610754082
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -180,23 +179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionDamage: 1
   destroyOnCollison: 1
---- !u!114 &114109579373042542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1745732962851528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a583ecb6b214848b80989188453f4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dodgeRate: 2
-  dodgeMagnitude: 2
-  startWait: 0.5
-  maneouverTime: 0.5
-  collisionDamage: 1
-  gc: {fileID: 0}
 --- !u!114 &114668443508056104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6fb7c8d2926fec4cbd0bd6abd64fece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.5
+  speed: -3.5
   boundary: {fileID: 0}
 --- !u!114 &114960913992868972
 MonoBehaviour:
@@ -221,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07143fb392c1e6544915461249d60628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 10
   currentHealth: 0
   powerUpFrequency: 250
   powerUp: {fileID: 1093472385426360, guid: a0257645ae8e6fc46bf66504aba4f1f6, type: 2}

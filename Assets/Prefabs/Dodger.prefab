@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 114699086321125236}
   - component: {fileID: 114838970724331582}
   - component: {fileID: 114789511719221298}
+  - component: {fileID: 114389124616927304}
   m_Layer: 9
   m_Name: Dodger
   m_TagString: Enemy
@@ -156,6 +157,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114389124616927304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1307626033287070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d959e1373d7cf64a8da52f6917be1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xInitialRotation: 90
+  yInitialRotation: 180
+  zInitialRotation: 0
+  rotationAmmount: 35
 --- !u!114 &114407357050176374
 MonoBehaviour:
   m_ObjectHideFlags: 1

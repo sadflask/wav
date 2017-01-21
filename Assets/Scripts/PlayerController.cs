@@ -36,7 +36,12 @@ public class PlayerController : MonoBehaviour {
                Mathf.Clamp(GetComponent<Rigidbody>().position.y, -boundary.localScale.y / 2, boundary.localScale.y / 2),
                0
            );
-    }
+		
+		float rotation = Mathf.Clamp (rb.velocity.x * 15, -15, 15);
+		rb.transform.rotation = Quaternion.Euler (0,-rotation-180,-180);
+
+
+	}
 
     //Called once per frame
     void Update()

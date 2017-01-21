@@ -8018,8 +8018,9 @@ MonoBehaviour:
   player: {fileID: 864163759}
   dodger: {fileID: 1307626033287070, guid: 3cf86223e0f62544aa682073b8d1fab7, type: 2}
   bruiser: {fileID: 1988069627234826, guid: 08ecb1001d5a46b4a832c0cf06f488af, type: 2}
-  bossEnemy: {fileID: 1863955363504578, guid: d571672a20111b7439d6a6dbbbeed778, type: 2}
+  bossEnemy: {fileID: 1217963432438674, guid: d571672a20111b7439d6a6dbbbeed778, type: 2}
   asteroid: {fileID: 1064159742941746, guid: aa39d30111e687443b154c669172a586, type: 2}
+  zoomer: {fileID: 1745732962851528, guid: 7205afbeb12290c478d28e7d69236827, type: 2}
   enemyWait: 1
   waveTime: 15
   enemySpawnHeight: 5

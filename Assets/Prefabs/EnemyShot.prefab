@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23628110967505784}
   - component: {fileID: 114308852056648658}
   - component: {fileID: 54246011318603630}
+  - component: {fileID: 114439751136681454}
   m_Layer: 0
   m_Name: EnemyShot
   m_TagString: Untagged
@@ -110,6 +111,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -5
   boundary: {fileID: 0}
+--- !u!114 &114439751136681454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844850103914960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733672664829fe94696d4c60bea20347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDamage: 1
+  destroyOnCollison: 1
 --- !u!136 &136379899293952106
 CapsuleCollider:
   m_ObjectHideFlags: 1

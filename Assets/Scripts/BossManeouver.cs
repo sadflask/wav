@@ -25,57 +25,74 @@ public class BossManeouver : MonoBehaviour {
         maneouverStartTime = 0;
 	}
 	
+    void FixedUpdate()
+    {
+        if (!(GetComponent<Health>().currentHealth < 0))
+        {
+            return;
+        }
+        rb.velocity = new Vector3(0, 4, 0);
+    }
 	// Update is called once per frame
 	void Update () {
-        float currentTime = Time.time - startTime;
-        float timeSinceManeouverStart = Time.time - maneouverStartTime;
-        if (currentTime > 1.5)
+        if (GetComponent<Health>().currentHealth < 0)
         {
-            if (maneouverStartTime == 0)
+            return;
+        }
+        else
+        {
+            float currentTime = Time.time - startTime;
+            float timeSinceManeouverStart = Time.time - maneouverStartTime;
+            if (currentTime > 1.5)
             {
-                maneouverStartTime = Time.time;
-                nextChange = Time.time + patternChange;
-            }
-            float newx = Mathf.Sin(timeSinceManeouverStart/5)*3;
-            float newy = Mathf.Sin(timeSinceManeouverStart)/3;
-            rb.position = new Vector3(newx, newy) + startPosition; 
-            //Wait for next fire
-            if (nextFire < Time.time)
-            {
-                //Fire
-                for(int i=0;i<spawns.Length;i++) {
-
-                    if (firePattern % 3 == 0)
-                    {
-                        if (i<2)
-                        {
-                            Instantiate(enemyBullet, spawns[i].transform.position, Quaternion.Euler(0, 0, 90));
-                        }
-                    }
-                    else if (firePattern % 3 == 1)
-                    {
-                        if (i<4)
-                        {
-                            Instantiate(enemyBullet, spawns[i].transform.position, Quaternion.Euler(0, 0, 90));
-                        }
-                    }
-                    else if (firePattern % 3 == 2)
-                    {
-                        Instantiate(enemyBullet, spawns[i].transform.position, Quaternion.Euler(0, 0, 90));
-                    }
+                if (maneouverStartTime == 0)
+                {
+                    maneouverStartTime = Time.time;
+                    nextChange = Time.time + patternChange;
                 }
-                nextFire = Time.time + cooldown;
-            }
-            if (Time.time > nextChange)
-            {
-                firePattern++;
-                nextChange += patternChange;
-            }
+                float newx = Mathf.Sin(timeSinceManeouverStart / 5) * 3;
+                float newy = Mathf.Sin(timeSinceManeouverStart) / 3;
+                rb.position = new Vector3(newx, newy) + startPosition;
+                //Wait for next fire
+                if (nextFire < Time.time)
+                {
+                    //Fire
+                    for (int i = 0; i < spawns.Length; i++)
+                    {
 
-        } else if(currentTime > 0.333)
-        {
-            rb.velocity = Vector3.zero;
-            startPosition = transform.position;
+                        if (firePattern % 3 == 0)
+                        {
+                            if (i < 2)
+                            {
+                                Instantiate(enemyBullet, spawns[i].transform.position, Quaternion.Euler(0, 0, 90));
+                            }
+                        }
+                        else if (firePattern % 3 == 1)
+                        {
+                            if (i < 4)
+                            {
+                                Instantiate(enemyBullet, spawns[i].transform.position, Quaternion.Euler(0, 0, 90));
+                            }
+                        }
+                        else if (firePattern % 3 == 2)
+                        {
+                            Instantiate(enemyBullet, spawns[i].transform.position, Quaternion.Euler(0, 0, 90));
+                        }
+                    }
+                    nextFire = Time.time + cooldown;
+                }
+                if (Time.time > nextChange)
+                {
+                    firePattern++;
+                    nextChange += patternChange;
+                }
+
+            }
+            else if (currentTime > 0.333)
+            {
+                rb.velocity = Vector3.zero;
+                startPosition = transform.position;
+            }
         }
 	}
 }
