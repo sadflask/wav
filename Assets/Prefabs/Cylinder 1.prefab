@@ -115,7 +115,7 @@ MonoBehaviour:
   startWait: 0.5
   maneouverTime: 0.5
   collisionDamage: 1
-  scoreValue: 50
+  scoreValue: 200
   gc: {fileID: 0}
 --- !u!114 &114232169495375346
 MonoBehaviour:
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  powerUpFrequency: 10000
+  powerUpFrequency: 50
   powerUp: {fileID: 1300263175111590, guid: 442df1b35e7ae694da2e499822de8c93, type: 2}
 --- !u!114 &114311367423250840
 MonoBehaviour:
