@@ -6,6 +6,7 @@ public class PowerUpMove : MonoBehaviour {
 
 	public Rigidbody rb;
 	public float fallSpeed;
+	public string powerUpType;
 
 	// Use this for initialization
 	void Start () {
@@ -16,21 +17,25 @@ public class PowerUpMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	//when the player picks up a power up
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Player")) {
-			Debug.Log ("Player collected a PowerUp!");
-			PlayerController pc = other.gameObject.GetComponent<PlayerController> ();
-			pc.bulletDamage += 0.2f;
-            Destroy(gameObject);
-			//pc.bulletSpeed++;
-			//pc.fireRate /= 2;
-			//pc.speed++;
-			//pc.bulletSpeed++;
+			if (powerUpType == "Damage") {
+				Debug.Log ("Player collected a PowerUp!");
+				PlayerController pc = other.gameObject.GetComponent<PlayerController> ();
+				pc.bulletDamage += 0.2f;
+				Destroy(gameObject);
+			}
+			if (powerUpType == "Movement") {
+				Debug.Log ("Player collected a PowerUp!");
+				PlayerController pc = other.gameObject.GetComponent<PlayerController> ();
+				float currentTime = Time.time;
+				pc.speed += 0.5f;
+				Destroy(gameObject);
 
+			}
 		}
 	}
 }

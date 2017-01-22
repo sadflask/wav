@@ -22,14 +22,12 @@ public class Health : MonoBehaviour {
 				float playerScore = GameObject.FindGameObjectWithTag ("Player").gameObject.GetComponent<PlayerScore> ().playerScore;
 				if (gameObject.CompareTag ("Enemy") &&  playerScore % powerUpFrequency == 0) {
 					Instantiate (powerUp, gameObject.GetComponent<Rigidbody> ().position, Quaternion.identity);
+
 				}
 			}
 
 			Debug.Log ("Destroyed " + gameObject.name + " due to lack of health");
-            if (!gameObject.CompareTag("BOSS"))
-            {
-                Destroy(gameObject);
-            }
+			Destroy (gameObject);
 		}
 	}
 
