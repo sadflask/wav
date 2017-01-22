@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -17,6 +18,7 @@ public class GameController : MonoBehaviour {
     public float enemySpawnHeight;
     public Transform boundary;
     public Text waveText;
+	public GameObject explosion;
 
 	public float asteroidSpawnDelay;
 
@@ -42,9 +44,21 @@ public class GameController : MonoBehaviour {
 			rb.velocity = v;
 
 			yield return new WaitForSeconds(asteroidSpawnDelay);
-		
 		}
+		yield return new WaitForSeconds (5);
+		SceneManager.LoadScene("title");
 
+	}
+	public void PlayExplosion() {
+		StartCoroutine (Explosions ());
+	}
+	IEnumerator Explosions() {
+		for (int i = 0; i < 15; i++) {
+			Vector3 randomPosition = new Vector3 (Random.Range (-5, 5), Random.Range (-3, 3));
+			Instantiate (explosion, randomPosition, transform.rotation);
+			yield return new WaitForSeconds (0.5f);
+		}
+		yield return null;
 	}
 	IEnumerator SpawnWaves()
     {

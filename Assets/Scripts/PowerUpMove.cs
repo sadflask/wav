@@ -22,20 +22,21 @@ public class PowerUpMove : MonoBehaviour {
 	//when the player picks up a power up
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Player")) {
+			PlayerController pc = other.gameObject.GetComponent<PlayerController> ();
+			pc.PowerUpSound();
 			if (powerUpType == "Damage") {
 				Debug.Log ("Player collected a PowerUp!");
-				PlayerController pc = other.gameObject.GetComponent<PlayerController> ();
 				pc.bulletDamage += 0.2f;
 				Destroy(gameObject);
 			}
 			if (powerUpType == "Movement") {
 				Debug.Log ("Player collected a PowerUp!");
-				PlayerController pc = other.gameObject.GetComponent<PlayerController> ();
 				float currentTime = Time.time;
 				pc.speed += 0.5f;
 				Destroy(gameObject);
 
 			}
+
 		}
 	}
 }

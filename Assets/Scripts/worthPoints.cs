@@ -6,7 +6,6 @@ public class worthPoints : MonoBehaviour {
 
 	//ammount to increase score by when this enemy is defeated
 	public float scoreValue;
-    public GameObject explosion;
 
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Bullet")) {
@@ -22,7 +21,6 @@ public class worthPoints : MonoBehaviour {
 			if (gameObject.GetComponent<Health> ().currentHealth <= 0) {
 				//increase player's score
 				Debug.Log("Player score increased");
-                Instantiate(explosion, transform.position, transform.rotation);
 				player.GetComponent<PlayerScore> ().addScore (scoreValue);
 
 			}

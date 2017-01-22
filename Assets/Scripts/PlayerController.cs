@@ -17,17 +17,28 @@ public class PlayerController : MonoBehaviour {
     public Text damageText;
     public GameObject shotSpawn;
 
+	public GameObject explosion;
     private PlayerBullet lastCreatedShot;
 	public float bulletSpeed;
 	public float bulletWaveAmplitude;
+
+	AudioSource[] sources;
+	AudioSource beamSound;
+	AudioSource powerUpSound;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
         bullets = new Queue<PlayerBullet>();
+		sources = GetComponents<AudioSource> ();
+		beamSound = sources [0];
+		powerUpSound = sources [1];
+
 	}
 
-
+	public void PowerUpSound() {
+		powerUpSound.Play ();
+	}
     //Once per frame for physics
     void FixedUpdate () {
         rb.velocity = new Vector3(Input.GetAxis("Horizontal"),0,0) * speed;
@@ -41,17 +52,20 @@ public class PlayerController : MonoBehaviour {
 		float rotation = Mathf.Clamp (rb.velocity.x * 15, -15, 15);
 		rb.transform.rotation = Quaternion.Euler (0,-rotation-180,-180);
 
-
 	}
-
+		
     //Called once per frame
     void Update()
     {
+
         //modify player bullet spread
         spread = (-bulletWaveAmplitude * (Input.GetAxis("Vertical"))) + bulletSpreadConstant;
 
         if (Input.GetButton("Fire1") && (Time.time > nextTime))
         {
+			if (!beamSound.isPlaying) {
+				beamSound.Play();
+			}
             nextTime = Time.time + fireRate;
             PlayerBullet b = Instantiate(shot, shotSpawn.transform.position, Quaternion.identity).GetComponent<PlayerBullet>();
             b.player = gameObject;
@@ -79,4 +93,5 @@ public class PlayerController : MonoBehaviour {
             }
         }
     }
+
 }

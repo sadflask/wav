@@ -178,7 +178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   fallSpeed: -5
-  duration: 0
   powerUpType: Damage
 --- !u!136 &136322032242345770
 CapsuleCollider:

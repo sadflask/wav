@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\PowerUpMove.cs" />
      <Compile Include="Assets\Scripts\PowerUpRotate.cs" />
      <Compile Include="Assets\Scripts\Rotate.cs" />
+     <Compile Include="Assets\Scripts\UI.cs" />
      <Compile Include="Assets\Scripts\moveTilt.cs" />
      <Compile Include="Assets\Scripts\worthPoints.cs" />
      <None Include="Assets\Game Jam Template\Fonts\OpenSans\License!.txt" />

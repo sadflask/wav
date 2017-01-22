@@ -206,6 +206,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   powerUpFrequency: 250
+  explosion: {fileID: 1335811113559950, guid: d7035cd5c1fb6be48b38111b04c48f2a, type: 2}
   powerUp: {fileID: 1093472385426360, guid: a0257645ae8e6fc46bf66504aba4f1f6, type: 2}
 --- !u!114 &114984280478836102
 MonoBehaviour:
@@ -219,7 +220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 50
-  explosion: {fileID: 1335811113559950, guid: d7035cd5c1fb6be48b38111b04c48f2a, type: 2}
 --- !u!136 &136385817003296270
 CapsuleCollider:
   m_ObjectHideFlags: 1
