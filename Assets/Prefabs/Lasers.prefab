@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4606514809007822}
   - component: {fileID: 54675127976834834}
   - component: {fileID: 135379756586036766}
-  - component: {fileID: 114291168693973284}
+  - component: {fileID: 114421113517100974}
   m_Layer: 8
   m_Name: Lasers
   m_TagString: Untagged
@@ -144,7 +144,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114291168693973284
+--- !u!114 &114421113517100974
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -152,11 +152,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1422117495948356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b972fcbb56f2e04ebd591f5a6552bab, type: 3}
+  m_Script: {fileID: 11500000, guid: 672b97e1adbd01844ac82fa73602db11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   fallSpeed: 3
+  powerUpType: Laser
 --- !u!135 &135379756586036766
 SphereCollider:
   m_ObjectHideFlags: 1
