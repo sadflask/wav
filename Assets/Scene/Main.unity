@@ -4489,6 +4489,7 @@ MonoBehaviour:
   bulletDamage: 1
   damageText: {fileID: 1313154240}
   shotSpawn: {fileID: 104572980}
+  secondShot: 0
   bulletSpeed: 5
   bulletWaveAmplitude: 1.5
 --- !u!23 &864163761
