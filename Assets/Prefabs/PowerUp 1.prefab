@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136322032242345770}
   - component: {fileID: 114701645162911750}
   - component: {fileID: 54556329282366944}
+  - component: {fileID: 114680515177939748}
   m_Layer: 8
   m_Name: PowerUp 1
   m_TagString: Untagged
@@ -152,6 +153,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114680515177939748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093472385426360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e19ef495cc49e74f989dd36c12fd2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!114 &114701645162911750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,6 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   fallSpeed: -5
+  duration: 0
+  powerUpType: Damage
 --- !u!136 &136322032242345770
 CapsuleCollider:
   m_ObjectHideFlags: 1
