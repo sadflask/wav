@@ -12,14 +12,18 @@ public class PlayerController : MonoBehaviour {
     private float nextTime;
 	public float bulletSpreadConstant;
     Rigidbody rb;
-    public Queue<PlayerBullet> bullets;
-	public float bulletDamage;
+    
+    public float bulletDamage;
     public Text damageText;
     public GameObject shotSpawn;
 
 	public GameObject explosion;
+    public bool secondShot;
     private PlayerBullet lastCreatedShot;
-	public float bulletSpeed;
+    private PlayerBullet lastCreatedShot2;
+    public Queue<PlayerBullet> bullets;
+    public Queue<PlayerBullet> bullets2;
+    public float bulletSpeed;
 	public float bulletWaveAmplitude;
 
 	AudioSource[] sources;
@@ -33,8 +37,10 @@ public class PlayerController : MonoBehaviour {
 		sources = GetComponents<AudioSource> ();
 		beamSound = sources [0];
 		powerUpSound = sources [1];
-
+        bullets2 = new Queue<PlayerBullet>();
 	}
+
+
 
 	public void PowerUpSound() {
 		powerUpSound.Play ();
@@ -75,6 +81,17 @@ public class PlayerController : MonoBehaviour {
             b.lastShot = lastCreatedShot;
             bullets.Enqueue(b);
             lastCreatedShot = b;
+            if(secondShot)
+            {
+                PlayerBullet b2 = Instantiate(shot, shotSpawn.transform.position, Quaternion.identity).GetComponent<PlayerBullet>();
+                b2.player = gameObject;
+                b2.spread = Mathf.Clamp(spread, 0, 5);
+                b2.speed = bulletSpeed;
+                b2.startAmplitude = -Mathf.Sin(-5 * Time.time);
+                b2.lastShot = lastCreatedShot2;
+                bullets2.Enqueue(b2);
+                lastCreatedShot2 = b2;
+            }
         }
         if (lastCreatedShot)
         {
@@ -83,15 +100,32 @@ public class PlayerController : MonoBehaviour {
                 bullets.Dequeue();
             }
         }
-        damageText.text = "Weapon: " + ((int)(bulletDamage * 100)).ToString() + "%";
-        foreach(PlayerBullet b in bullets)
+        if (lastCreatedShot2)
         {
-            if (b.spread!=spread)
+            if (bullets2.Peek() == null)
+            {
+                bullets2.Dequeue();
+            }
+        }
+        foreach (PlayerBullet b in bullets)
+        {
+            if (b.spread != spread)
             {
                 b.spread = spread;
                 b.lineSet = false;
             }
         }
+        foreach (PlayerBullet b2 in bullets2)
+        {
+            if (b2.spread != spread)
+            {
+                b2.spread = spread;
+                b2.lineSet = false;
+            }
+        }
+        
+        damageText.text = "Weapon: " + ((int)(bulletDamage * 100)).ToString() + "%";
+        
     }
 
 }

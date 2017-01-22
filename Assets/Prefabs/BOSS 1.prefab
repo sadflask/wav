@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 136877771087653124}
   m_Layer: 9
   m_Name: BOSS 1
-  m_TagString: Undefined
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -370,11 +370,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07143fb392c1e6544915461249d60628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 100
   currentHealth: 0
   powerUpFrequency: 50
   explosion: {fileID: 1335811113559950, guid: d7035cd5c1fb6be48b38111b04c48f2a, type: 2}
   powerUp: {fileID: 1093472385426360, guid: a0257645ae8e6fc46bf66504aba4f1f6, type: 2}
+
 --- !u!136 &136877771087653124
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -31,12 +31,15 @@ public class PowerUpMove : MonoBehaviour {
 			}
 			if (powerUpType == "Movement") {
 				Debug.Log ("Player collected a PowerUp!");
-				float currentTime = Time.time;
 				pc.speed += 0.5f;
 				Destroy(gameObject);
-
 			}
-
-		}
+            if (powerUpType == "Laser")
+            {
+                Debug.Log("Player collected a PowerUp!");
+                pc.secondShot = true;
+                Destroy(gameObject);
+            }
+        }
 	}
 }
