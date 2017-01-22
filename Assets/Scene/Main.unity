@@ -4480,7 +4480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b724e5cd8c4da5341b8a9313687fc03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shot: {fileID: 1230464903110694, guid: 2486bfa23e1b02544915bb9bcfc618f2, type: 2}
+  shot: {fileID: 1778995469658782, guid: 2486bfa23e1b02544915bb9bcfc618f2, type: 2}
   speed: 5
   boundary: {fileID: 1179791712}
   fireRate: 0.05
