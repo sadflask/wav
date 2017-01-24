@@ -4598,7 +4598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   currentHealth: 0
-  powerUpFrequency: 250
+  dropChance: 0
   explosion: {fileID: 1335811113559950, guid: d7035cd5c1fb6be48b38111b04c48f2a, type: 2}
   powerUp: {fileID: 1093472385426360, guid: a0257645ae8e6fc46bf66504aba4f1f6, type: 2}
 --- !u!114 &864163767
@@ -8304,7 +8304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 864163759}
-  dodger: {fileID: 1566600293842904, guid: 21071e80fc4111546b62ade5df0d2f20, type: 2}
+  dodger: {fileID: 1566600293842904, guid: 2e37f16a33692ef4fbc40a8a99ab9f2b, type: 2}
   bruiser: {fileID: 1834834432589094, guid: 08ecb1001d5a46b4a832c0cf06f488af, type: 2}
   bossEnemy: {fileID: 1038250525531696, guid: d571672a20111b7439d6a6dbbbeed778, type: 2}
   asteroid: {fileID: 1064159742941746, guid: aa39d30111e687443b154c669172a586, type: 2}
