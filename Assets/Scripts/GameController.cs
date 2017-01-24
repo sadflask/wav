@@ -68,6 +68,7 @@ public class GameController : MonoBehaviour {
             for(int i=1;i<=10;i++)
             {
                 waveText.text = "Wave: " + (i + 10 * numSets).ToString();
+
                 if (i == 10)
                 {
                     bossDestroyed = false;

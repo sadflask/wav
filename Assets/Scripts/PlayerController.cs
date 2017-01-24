@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject shot;
     public GameObject[] shots;
     public int currentShot;
+
     public float speed;
     public Transform boundary;
     public float fireRate;
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour {
         bulletDamage = newPower;
         currentShot++;
         shot = shots[currentShot % 8];
-    }
+	}
 
 	public void PowerUpSound() {
 		powerUpSound.Play ();

@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 114840447519878428}
   - component: {fileID: 64463367004941478}
   m_Layer: 9
-  m_Name: Dodger 1
+  m_Name: Dodger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
